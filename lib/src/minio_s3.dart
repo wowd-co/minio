@@ -12,12 +12,15 @@ const awsS3Endpoint = {
   'ap-southeast-1': 's3-ap-southeast-1.amazonaws.com',
   'ap-southeast-2': 's3-ap-southeast-2.amazonaws.com',
   'ap-northeast-1': 's3-ap-northeast-1.amazonaws.com',
-  'cn-north-1': 's3.cn-north-1.amazonaws.com.cn',
-  's3-accelerate': 's3-accelerate.amazonaws.com',
+  'cn-north-1': 's3.cn-north-1.amazonaws.com.cn'
 };
 
 // getS3Endpoint get relevant endpoint for the region.
 String getS3Endpoint(String region) {
   final endpoint = awsS3Endpoint[region];
   return endpoint ?? 's3.amazonaws.com';
+}
+
+bool isAcceleratedS3Endpoint(String endpoint) {
+  return endpoint == 's3-accelerate.amazonaws.com';
 }

@@ -245,7 +245,9 @@ class MinioClient {
     var path = '/';
 
     if (isAmazonEndpoint(host)) {
-      host = getS3Endpoint(minio.region!);
+      host = isAcceleratedS3Endpoint(host)
+          ? 's3-accelerate.amazonaws.com'
+          : getS3Endpoint(minio.region!);
     }
 
     if (isVirtualHostStyle(host, minio.useSSL, bucket)) {
