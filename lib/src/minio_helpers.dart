@@ -39,6 +39,7 @@ bool isValidPrefix(String prefix) {
 bool isAmazonEndpoint(String endpoint) => [
       'amazonaws.com',
       's3.amazonaws.com',
+      's3-accelerate.amazonaws.com',
       's3.cn-north-1.amazonaws.com.cn'
     ].contains(endpoint);
 
