@@ -36,10 +36,11 @@ bool isValidPrefix(String prefix) {
   return true;
 }
 
-bool isAmazonEndpoint(String endpoint) {
-  return endpoint == 's3.amazonaws.com' ||
-      endpoint == 's3.cn-north-1.amazonaws.com.cn';
-}
+bool isAmazonEndpoint(String endpoint) => [
+      'amazonaws.com',
+      's3.amazonaws.com',
+      's3.cn-north-1.amazonaws.com.cn'
+    ].contains(endpoint);
 
 bool isVirtualHostStyle(String endpoint, bool useSSL, String? bucket) {
   if (bucket == null) {
